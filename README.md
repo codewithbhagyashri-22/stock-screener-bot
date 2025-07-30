@@ -29,13 +29,28 @@ This POC demonstrates the logic and workflow using `yfinance` for volume screeni
 
 ```bash
 pip install -r requirements.txt
+```
 
-⚙️ How It Works
-Volume Screener: Pulls 15-day history using yfinance to calculate today's volume and 10-day ADV (Average Daily Volume).
+---
 
-Options Filters (Mock): MOck data used
+## ⚙️ How It Works
 
-Scoring Function: Calculates a composite score:
+### 1. Volume Screener
+
+Fetches 15-day historical data using `yfinance` and calculates:
+- **Today's volume**
+- **10-day average daily volume (ADV)**
+- **Relative Volume (RVol)** = Volume Today / ADV
+
+Stocks are shortlisted if:
+- Volume ≥ 1.2 × ADV
+- RVol ≥ 1.2
+
+### 2. Options Filter (Mock Data)
+
+### 3. Scoring System
+
+Each ticker is scored based on:
 
 IV Spike > 20
 
@@ -44,8 +59,21 @@ Premium > 50K
 call-Put Ratio > 1
 
 Discord Posting: Sends formatted message via webhook with ticker and key metrics.
+Top-ranked tickers are posted.
 
-🧪 Example Output
+### 4. Discord Posting
+
+Filtered results are posted to a Discord channel using a webhook with:
+- Ticker
+- Score
+- Volume Spike
+- IV Spike
+- Premium
+- Call/Put Ratio
+
+---
+
+## 🧪 Example Output
 
 **META**
 Volume Today: 13227300
@@ -55,28 +83,38 @@ Volume Today: 13227300
 🔄 Call/Put Ratio: 2.1
 🏆 Score: 4
 
-📂 Notes
-This is a POC, not intended for production.
+---
 
-Mock data is used in place of real options API (e.g., Polygon.io).
+## 📂 Notes
 
-Replace mock data logic with a live options API when going to production.
+- This is a **POC**, not production-grade.
+- **Mock data** is used for options activity.
+- Replace mocks with [Polygon.io](https://polygon.io) or [IEX Cloud](https://iexcloud.io) APIs for real-time usage.
+- Discord webhook posting is optional and configurable.
 
-Discord webhook is optional and can be disabled for local testing.
+---
 
-🛠️ Next Steps (Production Upgrade)
-✅ Replace mock options data with real-time from Polygon.io or IEX Cloud.
+## 🛠️ Next Steps (Production Suggestions)
 
-✅ Store historical IV/OI data in SQLite or TimescaleDB.
+- 🔁 Replace mock options logic with real-time API
+- 🧠 Store historical IV/OI using a lightweight database
+- ⚠️ Add error handling and logging
+- 📅 Automate scheduling via cron or serverless
 
-✅ Add retries and error handling for API failures.
+---
 
-✅ Deploy using cron job or serverless scheduler.
+## 🤝 Contributing
 
-🤝 Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you'd like to change.
+Contributions are welcome!  
+If you'd like to contribute, please fork the repo and open a pull request.  
+For major changes, open an issue first to discuss what you'd like to propose.
 
-💬 Contact
-Made with 💻 by [Bhagyashri Salgare]
-Connect: [GitHub](https://github.com/codewithbhagyashri-22) | [LinkedIn](https://www.linkedin.com/in/bhagyashri-salgare-485b5b146/)
+---
+
+## 💬 Contact
+
+Created by **[Bhagyashri Salgare]**  
+GitHub: [github.com/codewithbhagyashri-22](https://github.com/codewithbhagyashri-22)  
+LinkedIn: [linkedin.com/in/BhagyashriSalgare](https://www.linkedin.com/in/bhagyashri-salgare-485b5b146/)
+
 
