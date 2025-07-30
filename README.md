@@ -30,7 +30,7 @@ This POC demonstrates the logic and workflow using `yfinance` for volume screeni
 ```bash
 pip install -r requirements.txt
 
-⚙️ How It Works
+## ⚙️ How It Works
 Volume Screener: Pulls 15-day history using yfinance to calculate today's volume and 10-day ADV (Average Daily Volume).
 
 Options Filters (Mock): MOck data used
@@ -45,7 +45,7 @@ call-Put Ratio > 1
 
 Discord Posting: Sends formatted message via webhook with ticker and key metrics.
 
-🧪 Example Output
+## 🧪 Example Output
 
 **META**
 Volume Today: 13227300
