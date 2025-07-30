@@ -31,19 +31,57 @@ This POC demonstrates the logic and workflow using `yfinance` for volume screeni
 pip install -r requirements.txt
 
 ## ⚙️ How It Works
-Volume Screener: Pulls 15-day history using yfinance to calculate today's volume and 10-day ADV (Average Daily Volume).
 
-Options Filters (Mock): MOck data used
+### 1. Volume Screener
 
-Scoring Function: Calculates a composite score:
+Fetches 15-day historical data using `yfinance` and calculates:
 
-IV Spike > 20
+- **Today's volume**
+- **10-day average daily volume (ADV)**
+- **Relative Volume (RVol)** = Volume Today / ADV
 
-Premium > 50K
+**Stocks are shortlisted if:**
+- Volume ≥ 1.2 × ADV  
+- RVol ≥ 1.2
 
-call-Put Ratio > 1
+---
 
-Discord Posting: Sends formatted message via webhook with ticker and key metrics.
+### 2. Options Filter (Mock Data)
+
+Simulated filters include:
+
+- Options volume ≥ 1.5× 20-day average  
+- Implied Volatility (IV) ≥ 25% over 20-day average  
+- Call/Put Ratio ≥ 2 or ≤ 0.5  
+- Premium > $50,000  
+
+---
+
+### 3. Scoring System
+
+Each ticker is scored based on:
+
+- 40% IV spike  
+- 30% Premium  
+- 20% Volume spike  
+- 10% OI  
+
+Top-ranked tickers are posted.
+
+---
+
+### 4. Discord Posting
+
+Filtered results are posted to a Discord channel using a webhook with:
+
+- Ticker  
+- Score  
+- Volume Spike  
+- IV Spike  
+- Premium  
+- Call/Put Ratio  
+
+---
 
 ## 🧪 Example Output
 
