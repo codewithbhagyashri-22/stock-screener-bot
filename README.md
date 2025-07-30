@@ -1,6 +1,6 @@
 # 📊 Stock Screener Bot (POC)
 
-A proof-of-concept (POC) bot that identifies high-conviction S&P 500 and NASDAQ stocks daily using volume and options activity filters. Results are posted to a Discord channel via webhook.
+A proof-of-concept (POC) bot that identifies high-conviction stocks daily using volume and options activity filters. Results are posted to a Discord channel via webhook.
 
 This POC demonstrates the logic and workflow using `yfinance` for volume screening and mock data for options activity.
 
