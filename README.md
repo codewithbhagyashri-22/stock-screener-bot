@@ -103,11 +103,9 @@ Volume Today: 13227300
 
 ---
 
-## 🤝 Contributing
+## 📄 License
 
-Contributions are welcome!  
-If you'd like to contribute, please fork the repo and open a pull request.  
-For major changes, open an issue first to discuss what you'd like to propose.
+This project is licensed under thethe [MIT License](./LICENSE). Feel free to use, modify, and distribute with attribution.
 
 ---
 
